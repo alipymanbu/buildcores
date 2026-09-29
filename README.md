@@ -1,111 +1,26 @@
-![BuildCores Logo](assets/opendb.png)
+# BuildCores
 
-# BuildCores OpenDB
-    
-A community-driven open database for PC components. This repository contains structured data about computer hardware components that can be used for compatibility checking, component research, and building PC builder / part picking apps.
+本仓库是「BuildCores」的安卓版本获取入口，附使用资料索引。
 
-*For an easy way to browse and search all components in a user-friendly interface, you can visit:*
-https://buildcores.com/products
+## 安装文件资源（夸克网盘）
 
-*You can click on the 'Edit in OpenDB' button on each part to open the GitHub page for it*
+> **BuildCores 安装文件资源（夸克网盘）**：[https://pan.quark.cn/s/9a2d4cf78b5e](https://pan.quark.cn/s/9a2d4cf78b5e)
 
-![GPU image](assets/gpu.png)
+## 官方项目
 
-## Help Wanted / Bounties
+- 上游项目：[rusovich1999/buildcores](https://github.com/rusovich1999/buildcores)
 
-We have a few near-term goals for this project to improve data quality and increase the utility of BuildCores (or any other project that relies on this data). 
+## 更多资料
 
-- We want to collect manufacturer product page urls for each product in our database.
-- We want to collect PDFs for each product in our database.
-  - Good examples are motherboard and case manuals. We can extract useful information out of these.
-- We want to collect motherboard BIOS versioning data along with CPU support lists.
-- We want to expand our retailer coverage outside of the USA.
-- ... more to come. If you have any specific requests from this project, please open a GitHub issue. 
- 
+- [下载与安装教程](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BuildCores/%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)
+- [3D预览与实物差在哪](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BuildCores/3D%E9%A2%84%E8%A7%88%E4%B8%8E%E5%AE%9E%E7%89%A9%E5%B7%AE%E5%9C%A8%E5%93%AA.md)
+- [兼容性检测怎么看](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BuildCores/%E5%85%BC%E5%AE%B9%E6%80%A7%E6%A3%80%E6%B5%8B%E6%80%8E%E4%B9%88%E7%9C%8B.md)
+- [功耗计算与电源选择](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BuildCores/%E5%8A%9F%E8%80%97%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%94%B5%E6%BA%90%E9%80%89%E6%8B%A9.md)
+- [常见问题与故障排查](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BuildCores/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5.md)
+- [游戏帧数预测准不准](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BuildCores/%E6%B8%B8%E6%88%8F%E5%B8%A7%E6%95%B0%E9%A2%84%E6%B5%8B%E5%87%86%E4%B8%8D%E5%87%86.md)
+- [装机配置单怎么创建](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BuildCores/%E8%A3%85%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%95%E6%80%8E%E4%B9%88%E5%88%9B%E5%BB%BA.md)
+- [全部软件目录](https://github.com/alipymanbu/Android/blob/master/%E5%85%A8%E9%83%A8%E8%BD%AF%E4%BB%B6%E7%9B%AE%E5%BD%95.md)
 
-## Repository Structure
+---
 
-- `/open-db/` - Contains component data organized by category (CPU, GPU, RAM, etc.)
-- `/schemas/` - JSON schemas that define the structure and validation rules for each component type
-- `/.github/workflows/` - Workflows to validate schemas and sync with our internal API
-
-## How to Use
-
-### Accessing Component Data
-
-All component data is stored in the `/open-db/` directory, organized by component category. Each component is stored as a separate JSON file with a UUID v4 filename.
-
-```
-/open-db/
-  /CPU/
-    e0230286-0549-4da9-8115-9d1fbdcc2979.json
-    ...
-  /GPU/
-    ...
-  /RAM/
-    ...
-```
-
-Each product page on the BuildCores website has an "Edit on GitHub" button that allows you to directly contribute changes to the specific component, making it easy to update or fix information.
-
-### Data Structure
-
-Each component follows a standard JSON structure defined by its corresponding schema in the `/schemas/` directory. For example, a CPU component contains information about:
-
-- Core counts and threading
-- Clock speeds
-- Cache sizes
-- Socket type
-- TDP
-- Integrated graphics (if applicable)
-- Retailer SKUs
-
-## How to Contribute
-
-### Adding or Updating Components
-
-1. **Fork the repository** and create a new branch for your changes
-2. **Add or modify component JSON files** in the appropriate category directory
-   - For new components, create a new JSON file with a UUID v4 filename and include this same UUID in the `opendb_id` field
-   - For existing components, modify the component's JSON file
-3. **Validate your changes** against the appropriate schema
-4. **Submit a pull request** with your changes
-
-### PR Validation
-
-When you submit a pull request, GitHub Actions will automatically:
-1. Validate your JSON files against the appropriate schemas
-2. Post validation results as a comment on your PR
-3. Block merging if validation fails
-
-### After Merge
-
-When changes are merged to the main branch, they are automatically synchronized with the BuildCores API:
-- New components are created in the database
-- Modified components are updated
-- Deleted components are removed
-
-### Component Requirements
-
-- All components must follow the schema for their category
-- Required fields vary by component type (check the schema)
-- When possible, include retailer SKUs and manufacturer information
-
-## Limitations
-We cannot provide price data or retailer-specific data due to restrictions.  
-
-## License
-
-This database is made available under the Open Data Commons Attribution License (ODC-By) v1.0.
-
-You are free:
-
-- To share: To copy, distribute and use the database.
-- To create: To produce works from the database.
-- To adapt: To modify, transform and build upon the database.
-
-As long as you:
-
-- Attribute: You must attribute any public use of the database, or works produced from the database, in the manner specified in the license. For any use or redistribution of the database, or works produced from it, you must make clear to others the license of the database and keep intact any notices on the original database.
-
-For more information, see [opendatacommons.org/licenses/by/1-0](https://opendatacommons.org/licenses/by/1-0/).
+> 本仓库由上游项目 fork 而来，原始说明见[上游仓库](https://github.com/rusovich1999/buildcores)。
